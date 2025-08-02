@@ -11,7 +11,7 @@ def call(Map config = [:]) {
         passwordVariable: 'DOCKER_PASSWORD'
     )]) {
         sh """
-                    docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD} --password-stdin
+                    docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
                     docker tag ${imageName}:${imageTag} ${DOCKER_USERNAME}/${imageName}:${imageTag}
                     docker push ${DOCKER_USERNAME}/${imageName}:${imageTag}
                     echo 'Image pushed to Docker Hub successfully'
